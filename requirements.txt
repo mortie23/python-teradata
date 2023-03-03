@@ -1,0 +1,5 @@
+teradatasql
+mypy
+black
+ipykernel
+pandas
