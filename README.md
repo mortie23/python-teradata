@@ -29,12 +29,18 @@ Our hosts file is mapping the virtual machine's IP address to `tdvm`
 192.168.190.128 tdv
 ```
 
+![](./docs/teradata-vm.png)
+
 ### Setup database structures
 
 This step is oviously not required, however it is here for completeness sake.
 Running the `teradata-setup.sql` script to create the required database and provide access to the appropriate user.
 
 ### Setup the table structures
+
+Firstly test connecting to it from Teradata Studio IDE:
+
+![](./docs/teradata-studio-connection.png)
 
 Runing this (`python-nfl-ddl.sql`) SQL script in you favourite SQL IDE (for example Teradata Studio).
 
@@ -44,6 +50,28 @@ Runing this (`python-nfl-ddl.sql`) SQL script in you favourite SQL IDE (for exam
 
 I'm going to using Python interactive in VSCode to run this. In this mode we can run the "Cells" (blocks of code between `# %%` seperately and view tabular results in a more visual way).
 
+For example, running the `python-teradata.sql` script up until this point and then in the interactive window typeing `table` and hitting `shift-enter`.
+
+```py
+# %%
+query = f"""
+select
+  TableName
+  , count(*) as ColumnCount
+from
+  dbc.columnsv
+where
+  databasename='{database}'
+group by
+  TableName
+order by
+  TableName
+"""
+tables = pd.read_sql(query, con)
+```
+
 ![](./docs/python-nfl-tables.png)
+
+Now running the remainder of the script (before the truncation part) we sucessfully load the tables from the CSV files and can test querying one of the loaded tables.
 
 ![](./docs/python-player-table.png)
