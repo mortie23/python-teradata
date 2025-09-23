@@ -1,0 +1,18 @@
+# @package _global_
+# Teradata NFL database configuration
+
+database:
+  host: "tdvm"
+  name: "PRD_ADS_PYTHON_NFL_DB"
+  logmech: "TD2"
+
+# Table configurations for NFL data
+tables:
+  game_type: "GAME_TYPE"
+  venue: "VENUE" 
+  team_lookup: "TEAM_LOOKUP"
+  weather: "WEATHER"
+  game: "GAME"
+  player: "PLAYER"
+  game_stats: "GAME_STATS"
+  game_venue: "GAME_VENUE"

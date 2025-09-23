@@ -1,0 +1,23 @@
+/*
+Desc:   A simplicity TPT script to load a CSV to a table
+Reqs:   The Job Variables (jvar) file
+*/
+
+DEFINE JOB unit_job
+DESCRIPTION 'Unit TPT JOB' (
+  STEP delete_rows_table (
+        APPLY ('delete from table_stg;')
+        TO OPERATOR ($DDL);
+    );
+  STEP load_stg_table (
+    DEFINE SCHEMA unit_schema FROM TABLE DELIMITED @LoadTargetTable;
+    APPLY $INSERT @LoadTargetTable TO OPERATOR ($LOAD)
+    SELECT * FROM OPERATOR ($FILE_READER(unit_schema));
+  );
+  /*
+  STEP load_src_tables (
+        APPLY ('insert into table select * from table_stg_typecast_view;')
+        TO OPERATOR ($DDL);
+    );
+  */
+);

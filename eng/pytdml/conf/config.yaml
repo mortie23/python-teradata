@@ -1,0 +1,19 @@
+# Main configuration file for pytdml examples
+# This file sets up the default configuration structure
+
+defaults:
+  - database: teradata_nfl
+  - _self_
+
+# Data directory configuration
+data:
+  dir: "../../data"
+
+# CSV processing options
+csv:
+  reader: "auto"  # Options: auto, pandas, polars, duckdb
+  batch_size: 10000
+
+# Processing options
+processing:
+  if_exists: "replace"  # Options: append, replace, fail
