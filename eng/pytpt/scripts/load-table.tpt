@@ -6,7 +6,7 @@ Reqs:   The Job Variables (jvar) file
 DEFINE JOB unit_job
 DESCRIPTION 'Unit TPT JOB' (
   STEP delete_rows_table (
-        APPLY ('delete from table_stg;')
+        APPLY ('delete from {{table_name}};')
         TO OPERATOR ($DDL);
     );
   STEP load_stg_table (

@@ -1,13 +1,13 @@
 [project]
-name = "pytdml"
+name = "pytpt"
 version = "0.1.0"
-description = ""
+description = "Using Python as a wrapper to load CSVs with TPT"
 authors = [
     { name = "Christopher Mortimer", email = "christopher@mortimer.xyz" },
 ]
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = ["jinja2>=3.0.0", "python-dotenv>=1.0.0", "hydra-core>=1.3.0"]
 
 [dependency-groups]
 dev = ["pytest (>=8.4.2,<9.0.0)"]
