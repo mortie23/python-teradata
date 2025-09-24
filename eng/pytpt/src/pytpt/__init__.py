@@ -1,1 +1,1 @@
-"""pytdml package for Teradata TPT loading."""
+"""pytpt package for Teradata TPT loading."""
