@@ -26,7 +26,7 @@ def get_table_mapping():
 def match_csv_to_table(
     csv_file: Path,
     table_mapping: dict,
-) -> str:
-    """Match CSV filename to table name."""
+) -> str | None:
+    """Match CSV filename to table name. Returns None if no mapping exists."""
     csv_name = csv_file.stem  # filename without extension
-    return table_mapping.get(csv_name, csv_name.upper())
+    return table_mapping.get(csv_name)
