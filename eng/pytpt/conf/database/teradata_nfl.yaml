@@ -2,9 +2,12 @@
 # Teradata NFL database configuration
 
 database:
-  host: "tdvm"
+  ddl_host: "tdvm"
+  target_host: "tdvm"
+  working_database: "PRD_ADS_PYTHON_NFL_DB"
   name: "PRD_ADS_PYTHON_NFL_DB"
-  logmech: "TD2"
+  ddl_logmech: "LDAP"
+  target_logmech: "LDAP"
 
 # Table configurations for NFL data
 tables:

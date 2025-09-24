@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 from jinja2 import Template
 from dotenv import load_dotenv
+from .config_utils import load_config
 
 
 def load_env_vars():
@@ -12,17 +13,19 @@ def load_env_vars():
 
 
 def get_credentials():
-    """Get credentials from environment variables."""
+    """Get credentials from environment variables and config."""
+    config = load_config()
+
     return {
         "ddl_username": os.getenv("DDL_USERNAME", "mortch"),
         "ddl_password": os.getenv("DDL_PASSWORD", ""),
         "target_username": os.getenv("TARGET_USERNAME", "mortch"),
         "target_password": os.getenv("TARGET_PASSWORD", ""),
-        "ddl_host": os.getenv("DDL_HOST", "tdvm"),
-        "target_host": os.getenv("TARGET_HOST", "terprddb.edw.health"),
-        "ddl_logon_mech": os.getenv("DDL_LOGON_MECH", "LDAP"),
-        "target_logon_mech": os.getenv("TARGET_LOGON_MECH", "LDAP"),
-        "working_database": os.getenv("WORKING_DATABASE", "python_db"),
+        "ddl_host": config.database.ddl_host,
+        "target_host": config.database.target_host,
+        "ddl_logon_mech": config.database.ddl_logmech,
+        "target_logon_mech": config.database.target_logmech,
+        "working_database": config.database.working_database,
     }
 
 
