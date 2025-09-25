@@ -1,0 +1,10 @@
+# Main configuration file for pytpt examples
+# This file sets up the default configuration structure
+
+defaults:
+  - database: PRD_ADS_PYTHON_NFL_DB
+  - _self_
+
+# Data directory configuration
+data:
+  dir: "../../data"

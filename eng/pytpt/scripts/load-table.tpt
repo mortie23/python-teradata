@@ -1,0 +1,13 @@
+/*
+Desc:   Load CSV data to existing table
+Reqs:   The Job Variables (jvar) file
+*/
+
+DEFINE JOB load_table_job
+DESCRIPTION 'Load Table TPT JOB' (
+  STEP load_stg_table (
+    DEFINE SCHEMA unit_schema FROM TABLE DELIMITED @LoadTargetTable;
+    APPLY $INSERT @LoadTargetTable TO OPERATOR ($LOAD)
+    SELECT * FROM OPERATOR ($FILE_READER(unit_schema));
+  );
+);

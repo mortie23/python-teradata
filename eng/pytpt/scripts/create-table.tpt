@@ -1,0 +1,12 @@
+/*
+Desc:   Create table from DDL
+Reqs:   The Job Variables (jvar) file
+*/
+
+DEFINE JOB create_table_job
+DESCRIPTION 'Create Table TPT JOB' (
+  STEP create_table (
+        APPLY ('{{ddl_content}}')
+        TO OPERATOR ($DDL);
+    );
+);

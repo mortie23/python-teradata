@@ -1,1 +1,12 @@
 .mypy_cache/
+__pycache__/
+render_tmp/
+
+# Environment files (contain secrets)
+.env
+.env.local
+.env.*.local
+
+# Hydra outputs
+outputs/
+.hydra/

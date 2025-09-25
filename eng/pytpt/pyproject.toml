@@ -1,0 +1,28 @@
+[project]
+name = "pytpt"
+version = "0.1.0"
+description = "Using Python as a wrapper to load CSVs with TPT"
+authors = [
+    { name = "Christopher Mortimer", email = "christopher@mortimer.xyz" },
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["jinja2>=3.0.0", "python-dotenv>=1.0.0", "hydra-core>=1.3.0"]
+
+[dependency-groups]
+dev = ["pytest (>=8.4.2,<9.0.0)"]
+
+[tool.poetry]
+packages = [{ include = "pytpt", from = "src" }]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integration: marks tests as integration tests (may require real config/env)",
+    "database: marks tests that require actual database connection",
+]
+addopts = "-v --tb=short"
