@@ -2,7 +2,7 @@
 # This file sets up the default configuration structure
 
 defaults:
-  - database: teradata_nfl
+  - database: PRD_ADS_PYTHON_NFL_DB
   - _self_
 
 # Data directory configuration
