@@ -31,16 +31,25 @@ def load_table(
     from .templates import create_tpt_files
 
     # Create TPT files
-    jvar_file, tpt_file = create_tpt_files(table_name, csv_file_path)
+    jvar_file, create_file, load_file = create_tpt_files(table_name, csv_file_path)
 
     print(f"Loading {csv_file_path} to table {table_name}")
 
-    # Run TPT
-    success = run_tbuild(jvar_file, tpt_file)
+    # Run create table job first
+    print("Step 1: Creating table...")
+    create_success = run_tbuild(jvar_file, create_file)
 
-    if success:
+    if not create_success:
+        print(f"Failed to create table {table_name}")
+        return False
+
+    # Run load job second
+    print("Step 2: Loading data...")
+    load_success = run_tbuild(jvar_file, load_file)
+
+    if load_success:
         print(f"Successfully loaded {table_name}")
     else:
-        print(f"Failed to load {table_name}")
+        print(f"Failed to load data to {table_name}")
 
-    return success
+    return load_success

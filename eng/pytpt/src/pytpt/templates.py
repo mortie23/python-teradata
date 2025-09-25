@@ -51,37 +51,54 @@ def write_file(
         f.write(content)
 
 
+def read_ddl_file(table_name: str) -> str:
+    """Read DDL content for a table."""
+    ddl_path = Path("ddl") / f"{table_name.lower()}.sql"
+    if ddl_path.exists():
+        with open(ddl_path, "r") as f:
+            return f.read().strip()
+    return ""
+
+
 def create_tpt_files(
     table_name: str,
     csv_file_path: str,
-) -> tuple[Path, Path]:
-    """Create TPT jobvars and script files for a table."""
+) -> tuple[Path, Path, Path, Path]:
+    """Create TPT jobvars and script files for create and load jobs."""
     # Get template paths
     scripts_dir = Path("scripts")
     jobvars_template = scripts_dir / "jobvars-template.jvar"
-    tpt_template = scripts_dir / "load-table.tpt"
+    create_template = scripts_dir / "create-table.tpt"
+    load_template = scripts_dir / "load-table.tpt"
 
     # Get credentials
     credentials = get_credentials()
+
+    # Read DDL for the table
+    ddl_content = read_ddl_file(table_name)
 
     # Template variables
     template_vars = {
         **credentials,
         "table_name": table_name,
         "csv_file_path": csv_file_path,
+        "ddl_content": ddl_content,
     }
 
     # Render templates
     jobvars_content = render_template(jobvars_template, **template_vars)
-    tpt_content = render_template(tpt_template, **template_vars)
+    create_content = render_template(create_template, **template_vars)
+    load_content = render_template(load_template, **template_vars)
 
     # Output paths (in .gitignore directory)
     output_dir = Path(".gitignore")
     jobvars_output = output_dir / f"{table_name}.jvar"
-    tpt_output = output_dir / f"{table_name}.tpt"
+    create_output = output_dir / f"{table_name}_create.tpt"
+    load_output = output_dir / f"{table_name}_load.tpt"
 
     # Write files
     write_file(jobvars_content, jobvars_output)
-    write_file(tpt_content, tpt_output)
+    write_file(create_content, create_output)
+    write_file(load_content, load_output)
 
-    return jobvars_output, tpt_output
+    return jobvars_output, create_output, load_output
