@@ -63,8 +63,8 @@ def test_load_table():
         result = load_table(table_name, csv_path)
         assert isinstance(result, bool)
 
-        # Check that TPT files were created in .gitignore directory
-        output_dir = Path(".gitignore")
+        # Check that TPT files were created in render_tmp directory
+        output_dir = Path("render_tmp")
         jvar_file = output_dir / f"{table_name}.jvar"
         tpt_file = output_dir / f"{table_name}.tpt"
 
@@ -83,7 +83,7 @@ def test_load_table():
     finally:
         Path(csv_path).unlink()
         # Cleanup generated files if they exist
-        output_dir = Path(".gitignore")
+        output_dir = Path("render_tmp")
         for generated_file in [
             output_dir / f"{table_name}.jvar",
             output_dir / f"{table_name}.tpt",
@@ -107,7 +107,7 @@ def test_load_table_creates_files():
         load_table(table_name, csv_path)
 
         # Verify files were created
-        output_dir = Path(".gitignore")
+        output_dir = Path("render_tmp")
         jvar_file = output_dir / f"{table_name}.jvar"
         tpt_file = output_dir / f"{table_name}.tpt"
 
@@ -127,7 +127,7 @@ def test_load_table_creates_files():
     finally:
         Path(csv_path).unlink()
         # Cleanup
-        output_dir = Path(".gitignore")
+        output_dir = Path("render_tmp")
         for generated_file in [
             output_dir / f"{table_name}.jvar",
             output_dir / f"{table_name}.tpt",

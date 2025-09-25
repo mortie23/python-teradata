@@ -53,7 +53,7 @@ def write_file(
 
 def read_ddl_file(table_name: str) -> str:
     """Read DDL content for a table."""
-    ddl_path = Path("ddl") / f"{table_name.lower()}.sql"
+    ddl_path = Path("ddl") / f"{table_name}.sql"
     if ddl_path.exists():
         with open(ddl_path, "r") as f:
             return f.read().strip()
@@ -68,6 +68,7 @@ def create_tpt_files(
     # Get template paths
     scripts_dir = Path("scripts")
     jobvars_template = scripts_dir / "jobvars-template.jvar"
+    drop_template = scripts_dir / "drop-table.tpt"
     create_template = scripts_dir / "create-table.tpt"
     load_template = scripts_dir / "load-table.tpt"
 
@@ -87,18 +88,21 @@ def create_tpt_files(
 
     # Render templates
     jobvars_content = render_template(jobvars_template, **template_vars)
+    drop_content = render_template(drop_template, **template_vars)
     create_content = render_template(create_template, **template_vars)
     load_content = render_template(load_template, **template_vars)
 
-    # Output paths (in .gitignore directory)
-    output_dir = Path(".gitignore")
+    # Output paths (in render_tmp directory)
+    output_dir = Path("render_tmp")
     jobvars_output = output_dir / f"{table_name}.jvar"
     create_output = output_dir / f"{table_name}_create.tpt"
+    drop_output = output_dir / f"{table_name}_drop.tpt"
     load_output = output_dir / f"{table_name}_load.tpt"
 
     # Write files
     write_file(jobvars_content, jobvars_output)
+    write_file(drop_content, drop_output)
     write_file(create_content, create_output)
     write_file(load_content, load_output)
 
-    return jobvars_output, create_output, load_output
+    return jobvars_output, drop_output, create_output, load_output

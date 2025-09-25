@@ -1,5 +1,5 @@
 create table
-  PRD_ADS_PYTHON_NFL_DB.PLAYER (
+  PLAYER (
     GAME_PLAYER_ID integer not null
   , week integer
   , GAME_ID integer not null
@@ -22,7 +22,8 @@ create table
   , PASSING_TD integer
   , INTERCEPTIONS integer
   , constraint GAME_PLAYER_ID_PK primary key (GAME_PLAYER_ID)
-    --, constraint PLAYER_GAME_ID_FK foreign key (GAME_ID) references PRD_ADS_PYTHON_NFL_DB.GAME (GAME_ID)
-    --, constraint PLAYER_TEAM_ID_FK foreign key (TEAM_ID) references PRD_ADS_PYTHON_NFL_DB.TEAM_LOOKUP (TEAM_ID)
   )
 ;
+
+--, constraint PLAYER_GAME_ID_FK foreign key (GAME_ID) references PRD_ADS_PYTHON_NFL_DB.GAME (GAME_ID)
+--, constraint PLAYER_TEAM_ID_FK foreign key (TEAM_ID) references PRD_ADS_PYTHON_NFL_DB.TEAM_LOOKUP (TEAM_ID)

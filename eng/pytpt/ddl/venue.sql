@@ -1,5 +1,5 @@
 create table
-  PRD_ADS_PYTHON_NFL_DB.VENUE (
+  VENUE (
     VENUE_ID integer not null
   , VENUE_NAME varchar(50) character set LATIN not CASESPECIFIC
   , CAPACITY integer

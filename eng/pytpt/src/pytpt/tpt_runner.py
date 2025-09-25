@@ -31,12 +31,22 @@ def load_table(
     from .templates import create_tpt_files
 
     # Create TPT files
-    jvar_file, create_file, load_file = create_tpt_files(table_name, csv_file_path)
+    jvar_file, drop_file, create_file, load_file = create_tpt_files(
+        table_name, csv_file_path
+    )
 
     print(f"Loading {csv_file_path} to table {table_name}")
 
     # Run create table job first
-    print("Step 1: Creating table...")
+    print("Step 1: Dropping table...")
+    drop_success = run_tbuild(jvar_file, drop_file)
+
+    if not drop_success:
+        print(f"Failed to drop table {table_name}")
+        return False
+
+    # Run create table job first
+    print("Step 2: Creating table...")
     create_success = run_tbuild(jvar_file, create_file)
 
     if not create_success:
@@ -44,7 +54,7 @@ def load_table(
         return False
 
     # Run load job second
-    print("Step 2: Loading data...")
+    print("Step 3: Loading data...")
     load_success = run_tbuild(jvar_file, load_file)
 
     if load_success:

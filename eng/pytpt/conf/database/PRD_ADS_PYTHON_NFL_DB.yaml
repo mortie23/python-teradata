@@ -11,11 +11,11 @@ database:
 
 # Table configurations for NFL data
 tables:
+  game: "GAME"
   game_type: "GAME_TYPE"
+  game_stats: "GAME_STATS"
+  game_venue: "GAME_VENUE"
+  player: "PLAYER"
   venue: "VENUE" 
   team_lookup: "TEAM_LOOKUP"
   weather: "WEATHER"
-  game: "GAME"
-  player: "PLAYER"
-  game_stats: "GAME_STATS"
-  game_venue: "GAME_VENUE"
