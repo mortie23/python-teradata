@@ -1,0 +1,129 @@
+2025-09-29 14:13:54.960 | INFO     | pytpt.logging_config:setup_logging:40 - Logging configured - Console: INFO, File: pytpt.log
+2025-09-29 14:13:54.960 | INFO     | __main__:main:23 - Starting CSV to Teradata loading process...
+2025-09-29 14:13:54.961 | INFO     | __main__:main:28 - Environment variables loaded
+2025-09-29 14:13:55.004 | INFO     | __main__:main:32 - Configuration loaded
+2025-09-29 14:13:55.033 | INFO     | __main__:main:38 - Looking for CSV files in: ../../data
+2025-09-29 14:13:55.034 | INFO     | __main__:main:48 - Found 8 CSV files
+2025-09-29 14:13:55.034 | INFO     | __main__:main:73 - Processing 8 CSV files with table mappings
+2025-09-29 14:13:55.035 | INFO     | __main__:main:82 - Processing: game.csv -> GAME
+2025-09-29 14:13:55.036 | INFO     | pytpt.tpt_runner:load_table:88 - Starting table load process: C:\git\github\mortie23\python-teradata\eng\pytpt\..\..\data\game.csv -> GAME
+2025-09-29 14:13:55.068 | INFO     | pytpt.tpt_runner:load_table:96 - Step 1/3: Dropping table GAME
+2025-09-29 14:13:55.069 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting drop operation: tbuild -f render_tmp\GAME_drop.tpt -v render_tmp\GAME.jvar
+2025-09-29 14:14:02.935 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - drop operation completed successfully
+2025-09-29 14:14:02.936 | INFO     | pytpt.tpt_runner:load_table:104 - Step 2/3: Creating table GAME
+2025-09-29 14:14:02.936 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting create operation: tbuild -f render_tmp\GAME_create.tpt -v render_tmp\GAME.jvar
+2025-09-29 14:14:08.595 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - create operation completed successfully
+2025-09-29 14:14:08.595 | INFO     | pytpt.tpt_runner:load_table:112 - Step 3/3: Loading data into GAME
+2025-09-29 14:14:08.595 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting load operation: tbuild -f render_tmp\GAME_load.tpt -v render_tmp\GAME.jvar
+2025-09-29 14:14:24.167 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - load operation completed successfully
+2025-09-29 14:14:24.167 | INFO     | pytpt.tpt_runner:run_tbuild:66 - Rows sent to RDBMS: 266
+2025-09-29 14:14:24.167 | INFO     | pytpt.tpt_runner:run_tbuild:68 - Rows applied: 266
+2025-09-29 14:14:24.168 | SUCCESS  | pytpt.tpt_runner:load_table:116 - Successfully completed table load: GAME
+2025-09-29 14:14:24.168 | SUCCESS  | __main__:main:86 - Successfully processed: game.csv
+2025-09-29 14:14:24.168 | INFO     | __main__:main:82 - Processing: game_stats.csv -> GAME_STATS
+2025-09-29 14:14:24.168 | INFO     | pytpt.tpt_runner:load_table:88 - Starting table load process: C:\git\github\mortie23\python-teradata\eng\pytpt\..\..\data\game_stats.csv -> GAME_STATS
+2025-09-29 14:14:24.212 | INFO     | pytpt.tpt_runner:load_table:96 - Step 1/3: Dropping table GAME_STATS
+2025-09-29 14:14:24.212 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting drop operation: tbuild -f render_tmp\GAME_STATS_drop.tpt -v render_tmp\GAME_STATS.jvar
+2025-09-29 14:14:30.651 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - drop operation completed successfully
+2025-09-29 14:14:30.652 | INFO     | pytpt.tpt_runner:load_table:104 - Step 2/3: Creating table GAME_STATS
+2025-09-29 14:14:30.652 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting create operation: tbuild -f render_tmp\GAME_STATS_create.tpt -v render_tmp\GAME_STATS.jvar
+2025-09-29 14:14:36.809 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - create operation completed successfully
+2025-09-29 14:14:36.809 | INFO     | pytpt.tpt_runner:load_table:112 - Step 3/3: Loading data into GAME_STATS
+2025-09-29 14:14:36.809 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting load operation: tbuild -f render_tmp\GAME_STATS_load.tpt -v render_tmp\GAME_STATS.jvar
+2025-09-29 14:14:52.928 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - load operation completed successfully
+2025-09-29 14:14:52.929 | INFO     | pytpt.tpt_runner:run_tbuild:66 - Rows sent to RDBMS: 532
+2025-09-29 14:14:52.929 | INFO     | pytpt.tpt_runner:run_tbuild:68 - Rows applied: 532
+2025-09-29 14:14:52.929 | SUCCESS  | pytpt.tpt_runner:load_table:116 - Successfully completed table load: GAME_STATS
+2025-09-29 14:14:52.930 | SUCCESS  | __main__:main:86 - Successfully processed: game_stats.csv
+2025-09-29 14:14:52.930 | INFO     | __main__:main:82 - Processing: game_type.csv -> GAME_TYPE
+2025-09-29 14:14:52.930 | INFO     | pytpt.tpt_runner:load_table:88 - Starting table load process: C:\git\github\mortie23\python-teradata\eng\pytpt\..\..\data\game_type.csv -> GAME_TYPE
+2025-09-29 14:14:52.965 | INFO     | pytpt.tpt_runner:load_table:96 - Step 1/3: Dropping table GAME_TYPE
+2025-09-29 14:14:52.965 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting drop operation: tbuild -f render_tmp\GAME_TYPE_drop.tpt -v render_tmp\GAME_TYPE.jvar
+2025-09-29 14:14:59.012 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - drop operation completed successfully
+2025-09-29 14:14:59.013 | INFO     | pytpt.tpt_runner:load_table:104 - Step 2/3: Creating table GAME_TYPE
+2025-09-29 14:14:59.013 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting create operation: tbuild -f render_tmp\GAME_TYPE_create.tpt -v render_tmp\GAME_TYPE.jvar
+2025-09-29 14:15:04.587 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - create operation completed successfully
+2025-09-29 14:15:04.588 | INFO     | pytpt.tpt_runner:load_table:112 - Step 3/3: Loading data into GAME_TYPE
+2025-09-29 14:15:04.588 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting load operation: tbuild -f render_tmp\GAME_TYPE_load.tpt -v render_tmp\GAME_TYPE.jvar
+2025-09-29 14:15:20.010 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - load operation completed successfully
+2025-09-29 14:15:20.011 | INFO     | pytpt.tpt_runner:run_tbuild:66 - Rows sent to RDBMS: 2
+2025-09-29 14:15:20.011 | INFO     | pytpt.tpt_runner:run_tbuild:68 - Rows applied: 2
+2025-09-29 14:15:20.012 | SUCCESS  | pytpt.tpt_runner:load_table:116 - Successfully completed table load: GAME_TYPE
+2025-09-29 14:15:20.012 | SUCCESS  | __main__:main:86 - Successfully processed: game_type.csv
+2025-09-29 14:15:20.012 | INFO     | __main__:main:82 - Processing: game_venue.csv -> GAME_VENUE
+2025-09-29 14:15:20.012 | INFO     | pytpt.tpt_runner:load_table:88 - Starting table load process: C:\git\github\mortie23\python-teradata\eng\pytpt\..\..\data\game_venue.csv -> GAME_VENUE
+2025-09-29 14:15:20.055 | INFO     | pytpt.tpt_runner:load_table:96 - Step 1/3: Dropping table GAME_VENUE
+2025-09-29 14:15:20.055 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting drop operation: tbuild -f render_tmp\GAME_VENUE_drop.tpt -v render_tmp\GAME_VENUE.jvar
+2025-09-29 14:15:26.095 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - drop operation completed successfully
+2025-09-29 14:15:26.096 | INFO     | pytpt.tpt_runner:load_table:104 - Step 2/3: Creating table GAME_VENUE
+2025-09-29 14:15:26.096 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting create operation: tbuild -f render_tmp\GAME_VENUE_create.tpt -v render_tmp\GAME_VENUE.jvar
+2025-09-29 14:15:32.013 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - create operation completed successfully
+2025-09-29 14:15:32.014 | INFO     | pytpt.tpt_runner:load_table:112 - Step 3/3: Loading data into GAME_VENUE
+2025-09-29 14:15:32.014 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting load operation: tbuild -f render_tmp\GAME_VENUE_load.tpt -v render_tmp\GAME_VENUE.jvar
+2025-09-29 14:15:47.248 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - load operation completed successfully
+2025-09-29 14:15:47.248 | INFO     | pytpt.tpt_runner:run_tbuild:66 - Rows sent to RDBMS: 266
+2025-09-29 14:15:47.248 | INFO     | pytpt.tpt_runner:run_tbuild:68 - Rows applied: 266
+2025-09-29 14:15:47.249 | SUCCESS  | pytpt.tpt_runner:load_table:116 - Successfully completed table load: GAME_VENUE
+2025-09-29 14:15:47.249 | SUCCESS  | __main__:main:86 - Successfully processed: game_venue.csv
+2025-09-29 14:15:47.249 | INFO     | __main__:main:82 - Processing: player.csv -> PLAYER
+2025-09-29 14:15:47.249 | INFO     | pytpt.tpt_runner:load_table:88 - Starting table load process: C:\git\github\mortie23\python-teradata\eng\pytpt\..\..\data\player.csv -> PLAYER
+2025-09-29 14:15:47.285 | INFO     | pytpt.tpt_runner:load_table:96 - Step 1/3: Dropping table PLAYER
+2025-09-29 14:15:47.285 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting drop operation: tbuild -f render_tmp\PLAYER_drop.tpt -v render_tmp\PLAYER.jvar
+2025-09-29 14:15:53.423 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - drop operation completed successfully
+2025-09-29 14:15:53.424 | INFO     | pytpt.tpt_runner:load_table:104 - Step 2/3: Creating table PLAYER
+2025-09-29 14:15:53.424 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting create operation: tbuild -f render_tmp\PLAYER_create.tpt -v render_tmp\PLAYER.jvar
+2025-09-29 14:15:59.139 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - create operation completed successfully
+2025-09-29 14:15:59.140 | INFO     | pytpt.tpt_runner:load_table:112 - Step 3/3: Loading data into PLAYER
+2025-09-29 14:15:59.140 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting load operation: tbuild -f render_tmp\PLAYER_load.tpt -v render_tmp\PLAYER.jvar
+2025-09-29 14:16:14.955 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - load operation completed successfully
+2025-09-29 14:16:14.956 | INFO     | pytpt.tpt_runner:run_tbuild:66 - Rows sent to RDBMS: 37,863
+2025-09-29 14:16:14.956 | INFO     | pytpt.tpt_runner:run_tbuild:68 - Rows applied: 37,863
+2025-09-29 14:16:14.956 | SUCCESS  | pytpt.tpt_runner:load_table:116 - Successfully completed table load: PLAYER
+2025-09-29 14:16:14.957 | SUCCESS  | __main__:main:86 - Successfully processed: player.csv
+2025-09-29 14:16:14.957 | INFO     | __main__:main:82 - Processing: team_lookup.csv -> TEAM_LOOKUP
+2025-09-29 14:16:14.957 | INFO     | pytpt.tpt_runner:load_table:88 - Starting table load process: C:\git\github\mortie23\python-teradata\eng\pytpt\..\..\data\team_lookup.csv -> TEAM_LOOKUP
+2025-09-29 14:16:14.990 | INFO     | pytpt.tpt_runner:load_table:96 - Step 1/3: Dropping table TEAM_LOOKUP
+2025-09-29 14:16:14.991 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting drop operation: tbuild -f render_tmp\TEAM_LOOKUP_drop.tpt -v render_tmp\TEAM_LOOKUP.jvar
+2025-09-29 14:16:21.066 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - drop operation completed successfully
+2025-09-29 14:16:21.067 | INFO     | pytpt.tpt_runner:load_table:104 - Step 2/3: Creating table TEAM_LOOKUP
+2025-09-29 14:16:21.067 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting create operation: tbuild -f render_tmp\TEAM_LOOKUP_create.tpt -v render_tmp\TEAM_LOOKUP.jvar
+2025-09-29 14:16:26.640 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - create operation completed successfully
+2025-09-29 14:16:26.641 | INFO     | pytpt.tpt_runner:load_table:112 - Step 3/3: Loading data into TEAM_LOOKUP
+2025-09-29 14:16:26.641 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting load operation: tbuild -f render_tmp\TEAM_LOOKUP_load.tpt -v render_tmp\TEAM_LOOKUP.jvar
+2025-09-29 14:16:42.156 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - load operation completed successfully
+2025-09-29 14:16:42.156 | INFO     | pytpt.tpt_runner:run_tbuild:66 - Rows sent to RDBMS: 32
+2025-09-29 14:16:42.157 | INFO     | pytpt.tpt_runner:run_tbuild:68 - Rows applied: 32
+2025-09-29 14:16:42.157 | SUCCESS  | pytpt.tpt_runner:load_table:116 - Successfully completed table load: TEAM_LOOKUP
+2025-09-29 14:16:42.157 | SUCCESS  | __main__:main:86 - Successfully processed: team_lookup.csv
+2025-09-29 14:16:42.158 | INFO     | __main__:main:82 - Processing: venue.csv -> VENUE
+2025-09-29 14:16:42.158 | INFO     | pytpt.tpt_runner:load_table:88 - Starting table load process: C:\git\github\mortie23\python-teradata\eng\pytpt\..\..\data\venue.csv -> VENUE
+2025-09-29 14:16:42.192 | INFO     | pytpt.tpt_runner:load_table:96 - Step 1/3: Dropping table VENUE
+2025-09-29 14:16:42.192 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting drop operation: tbuild -f render_tmp\VENUE_drop.tpt -v render_tmp\VENUE.jvar
+2025-09-29 14:16:48.242 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - drop operation completed successfully
+2025-09-29 14:16:48.243 | INFO     | pytpt.tpt_runner:load_table:104 - Step 2/3: Creating table VENUE
+2025-09-29 14:16:48.243 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting create operation: tbuild -f render_tmp\VENUE_create.tpt -v render_tmp\VENUE.jvar
+2025-09-29 14:16:53.826 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - create operation completed successfully
+2025-09-29 14:16:53.826 | INFO     | pytpt.tpt_runner:load_table:112 - Step 3/3: Loading data into VENUE
+2025-09-29 14:16:53.827 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting load operation: tbuild -f render_tmp\VENUE_load.tpt -v render_tmp\VENUE.jvar
+2025-09-29 14:17:09.348 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - load operation completed successfully
+2025-09-29 14:17:09.349 | INFO     | pytpt.tpt_runner:run_tbuild:66 - Rows sent to RDBMS: 32
+2025-09-29 14:17:09.349 | INFO     | pytpt.tpt_runner:run_tbuild:68 - Rows applied: 32
+2025-09-29 14:17:09.349 | SUCCESS  | pytpt.tpt_runner:load_table:116 - Successfully completed table load: VENUE
+2025-09-29 14:17:09.350 | SUCCESS  | __main__:main:86 - Successfully processed: venue.csv
+2025-09-29 14:17:09.350 | INFO     | __main__:main:82 - Processing: weather.csv -> WEATHER
+2025-09-29 14:17:09.350 | INFO     | pytpt.tpt_runner:load_table:88 - Starting table load process: C:\git\github\mortie23\python-teradata\eng\pytpt\..\..\data\weather.csv -> WEATHER
+2025-09-29 14:17:09.392 | INFO     | pytpt.tpt_runner:load_table:96 - Step 1/3: Dropping table WEATHER
+2025-09-29 14:17:09.393 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting drop operation: tbuild -f render_tmp\WEATHER_drop.tpt -v render_tmp\WEATHER.jvar
+2025-09-29 14:17:15.464 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - drop operation completed successfully
+2025-09-29 14:17:15.465 | INFO     | pytpt.tpt_runner:load_table:104 - Step 2/3: Creating table WEATHER
+2025-09-29 14:17:15.465 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting create operation: tbuild -f render_tmp\WEATHER_create.tpt -v render_tmp\WEATHER.jvar
+2025-09-29 14:17:21.086 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - create operation completed successfully
+2025-09-29 14:17:21.087 | INFO     | pytpt.tpt_runner:load_table:112 - Step 3/3: Loading data into WEATHER
+2025-09-29 14:17:21.087 | INFO     | pytpt.tpt_runner:run_tbuild:48 - Starting load operation: tbuild -f render_tmp\WEATHER_load.tpt -v render_tmp\WEATHER.jvar
+2025-09-29 14:17:36.423 | SUCCESS  | pytpt.tpt_runner:run_tbuild:56 - load operation completed successfully
+2025-09-29 14:17:36.424 | INFO     | pytpt.tpt_runner:run_tbuild:66 - Rows sent to RDBMS: 116
+2025-09-29 14:17:36.424 | INFO     | pytpt.tpt_runner:run_tbuild:68 - Rows applied: 116
+2025-09-29 14:17:36.425 | SUCCESS  | pytpt.tpt_runner:load_table:116 - Successfully completed table load: WEATHER
+2025-09-29 14:17:36.426 | SUCCESS  | __main__:main:86 - Successfully processed: weather.csv
+2025-09-29 14:17:36.426 | INFO     | __main__:main:93 - Load process completed: 8/8 files loaded successfully
+2025-09-29 14:17:36.427 | SUCCESS  | __main__:main:103 - All files loaded successfully!
