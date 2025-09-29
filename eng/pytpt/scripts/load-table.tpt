@@ -3,6 +3,7 @@ Desc:   Load CSV data to existing table
 Reqs:   The Job Variables (jvar) file
 */
 
+USING CHARACTER SET UTF8
 DEFINE JOB load_table_job
 DESCRIPTION 'Load Table TPT JOB' (
   STEP load_stg_table (
