@@ -51,13 +51,69 @@ def run_tbuild(
 
     success = result.returncode == 0
 
+    # Create logs directory if it doesn't exist
+    logs_dir = Path("logs")
+    logs_dir.mkdir(exist_ok=True)
+
+    # Extract table name from jvar file for log naming
+    table_name = "unknown"
+    try:
+        table_name = (
+            jvar_file.stem.replace("_", "").replace("JVAR", "").replace("jvar", "")
+        )
+        if not table_name:
+            table_name = jvar_file.stem
+    except:
+        table_name = "unknown"
+
+    # Save complete TPT output to files
+    stdout_log_file = logs_dir / f"tpt_{table_name}_{operation_type}_stdout.log"
+    stderr_log_file = logs_dir / f"tpt_{table_name}_{operation_type}_stderr.log"
+    combined_log_file = logs_dir / f"tpt_{table_name}_{operation_type}_combined.log"
+
+    # Write stdout
+    if result.stdout:
+        with open(stdout_log_file, "w", encoding="utf-8") as f:
+            f.write(f"Command: {' '.join(cmd)}\n")
+            f.write(f"Return Code: {result.returncode}\n")
+            f.write(f"Operation: {operation_type}\n")
+            f.write("=" * 80 + "\n")
+            f.write(result.stdout)
+
+    # Write stderr
+    if result.stderr:
+        with open(stderr_log_file, "w", encoding="utf-8") as f:
+            f.write(f"Command: {' '.join(cmd)}\n")
+            f.write(f"Return Code: {result.returncode}\n")
+            f.write(f"Operation: {operation_type}\n")
+            f.write("=" * 80 + "\n")
+            f.write(result.stderr)
+
+    # Write combined output
+    with open(combined_log_file, "w", encoding="utf-8") as f:
+        f.write(f"Command: {' '.join(cmd)}\n")
+        f.write(f"Return Code: {result.returncode}\n")
+        f.write(f"Operation: {operation_type}\n")
+        f.write(f"Success: {success}\n")
+        f.write("=" * 80 + "\n")
+        if result.stdout:
+            f.write("STDOUT:\n")
+            f.write(result.stdout)
+            f.write("\n" + "=" * 80 + "\n")
+        if result.stderr:
+            f.write("STDERR:\n")
+            f.write(result.stderr)
+            f.write("\n" + "=" * 80 + "\n")
+
     # Log the result
     if success:
         logger.success(f"{operation_type} operation completed successfully")
+        logger.info(f"Complete TPT output saved to: {combined_log_file}")
     else:
         logger.error(
             f"{operation_type} operation failed with return code {result.returncode}"
         )
+        logger.error(f"Error details saved to: {combined_log_file}")
 
     # Parse metrics if it's a load operation
     if operation_type.lower() == "load" and result.stdout:

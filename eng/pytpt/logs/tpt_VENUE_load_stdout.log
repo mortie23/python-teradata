@@ -1,0 +1,45 @@
+Command: tbuild -f render_tmp\VENUE_load.tpt -v render_tmp\VENUE.jvar
+Return Code: 0
+Operation: load
+================================================================================
+Teradata Parallel Transporter Version 20.00.00.16 64-Bit
+The global configuration file 'c:\program files\teradata\client\20.00\Teradata Parallel Transporter\twbcfg.ini' is used.
+Log Directory: C:\Program Files\Teradata\client\20.00\Teradata Parallel Transporter/logs
+Checkpoint Directory: C:\Program Files\Teradata\client\20.00\Teradata Parallel Transporter/checkpoint
+
+Job log: C:\Program Files\Teradata\client\20.00\Teradata Parallel Transporter/logs/chris-173.out
+Job id is chris-173, running on yogaslick
+Teradata Parallel Transporter DataConnector Operator Version 20.00.00.16
+$FILE_READER[1]: Instance 1 directing private log report to '.\logs\tpt_VENUE_filereader.log-1'.
+Teradata Parallel Transporter Load Operator Version 20.00.00.16
+$LOAD: private log specified: .\logs\tpt_VENUE_load.log
+$FILE_READER[1]: DataConnector Producer operator Instances: 1
+$FILE_READER[1]: ECI operator ID: '$FILE_READER-6332'
+$FILE_READER[1]: Operator instance 1 processing file 'C:\git\github\mortie23\python-teradata\eng\pytpt\..\..\data\venue.csv'.
+$LOAD: connecting sessions
+$LOAD: preparing target table
+$LOAD: entering Acquisition Phase
+$LOAD: entering Application Phase
+$LOAD: Statistics for Target Table:  'PRD_ADS_PYTHON_NFL_DB."VENUE"'
+$LOAD: Total Rows Sent To RDBMS:      32
+$LOAD: Total Rows Applied:            32
+$LOAD: Total Rows in Error Table 1:   0
+$LOAD: Total Rows in Error Table 2:   0
+$LOAD: Total Duplicate Rows:          0
+$LOAD: disconnecting sessions
+$FILE_READER[1]: Number of records processed: 32
+$FILE_READER[1]: Total files processed: 1.
+$LOAD: sessions disconnected
+$LOAD: Performance metrics:
+$LOAD:     MB/sec in Acquisition phase: 0.001
+$LOAD:     Elapsed time from start to Acquisition phase:   7 second(s)
+$LOAD:     Elapsed time in Acquisition phase:   3 second(s)
+$LOAD:     Elapsed time in Application phase: < 1 second
+$LOAD:     Elapsed time from Application phase to end:   1 second(s)
+$LOAD: Total processor time used = '0.0625 Second(s)'
+$LOAD: Start : Mon Sep 29 17:11:32 2025
+$LOAD: End   : Mon Sep 29 17:11:43 2025
+Job step load_stg_table completed successfully
+Job chris completed successfully
+Job start: Mon Sep 29 17:11:32 2025
+Job end:   Mon Sep 29 17:11:43 2025

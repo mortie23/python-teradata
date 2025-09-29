@@ -14,7 +14,7 @@ from pytpt.csv_utils import (
 from pytpt.tpt_runner import load_table
 
 # Setup logging
-setup_logging("pytpt.log", "INFO")
+setup_logging("logs\pytpt.log", "INFO")
 logger = get_logger(__name__)
 
 
