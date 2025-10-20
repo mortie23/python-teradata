@@ -13,22 +13,25 @@ from pytpt.csv_utils import (
 )
 from pytpt.tpt_runner import load_table
 
-# Setup logging
-setup_logging("pytpt.log", "INFO")
-logger = get_logger(__name__)
-
 
 def main():
     """Main function to load all CSV files."""
+    # Load configuration first (before logging setup)
+    cfg = load_config()
+
+    # Setup logging with config values
+    log_dir = cfg.logging.get("dir", "logs")
+    log_file = cfg.logging.get("file", "pytpt.log")
+    log_level = cfg.logging.get("level", "INFO")
+    setup_logging(log_dir=log_dir, log_file=log_file, log_level=log_level)
+
+    logger = get_logger(__name__)
     logger.info("Starting CSV to Teradata loading process...")
 
     try:
         # Load environment variables
         load_env_vars()
         logger.info("Environment variables loaded")
-
-        # Load configuration
-        cfg = load_config()
         logger.info("Configuration loaded")
 
         # Get data directory and table mapping

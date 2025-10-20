@@ -8,3 +8,9 @@ defaults:
 # Data directory configuration
 data:
   dir: "../../data"
+
+# Logging configuration
+logging:
+  dir: "logs"
+  file: "pytpt.log"
+  level: "INFO"

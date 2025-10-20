@@ -1,0 +1,28 @@
+Command: tbuild -f render_tmp\VENUE_create.tpt -v render_tmp\VENUE.jvar
+Return Code: 0
+Operation: create
+Success: True
+================================================================================
+STDOUT:
+Teradata Parallel Transporter Version 20.00.00.16 64-Bit
+The global configuration file 'c:\program files\teradata\client\20.00\Teradata Parallel Transporter\twbcfg.ini' is used.
+Log Directory: C:\Program Files\Teradata\client\20.00\Teradata Parallel Transporter/logs
+Checkpoint Directory: C:\Program Files\Teradata\client\20.00\Teradata Parallel Transporter/checkpoint
+
+Job log: C:\Program Files\Teradata\client\20.00\Teradata Parallel Transporter/logs/chris-172.out
+Job id is chris-172, running on yogaslick
+Teradata Parallel Transporter SQL DDL Operator Version 20.00.00.16
+$DDL: private log specified: .\logs\tpt_VENUE_ddl.log
+$DDL: connecting sessions
+$DDL: sending SQL requests
+$DDL: disconnecting sessions
+$DDL: sessions disconnected
+$DDL: Total processor time used = '0.03125 Second(s)'
+$DDL: Start : Mon Sep 29 17:11:20 2025
+$DDL: End   : Mon Sep 29 17:11:26 2025
+Job step create_table completed successfully
+Job chris completed successfully
+Job start: Mon Sep 29 17:11:20 2025
+Job end:   Mon Sep 29 17:11:26 2025
+
+================================================================================

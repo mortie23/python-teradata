@@ -1,0 +1,28 @@
+Command: tbuild -f render_tmp\VENUE_drop.tpt -v render_tmp\VENUE.jvar
+Return Code: 0
+Operation: drop
+Success: True
+================================================================================
+STDOUT:
+Teradata Parallel Transporter Version 20.00.00.16 64-Bit
+The global configuration file 'c:\program files\teradata\client\20.00\Teradata Parallel Transporter\twbcfg.ini' is used.
+Log Directory: C:\Program Files\Teradata\client\20.00\Teradata Parallel Transporter/logs
+Checkpoint Directory: C:\Program Files\Teradata\client\20.00\Teradata Parallel Transporter/checkpoint
+
+Job log: C:\Program Files\Teradata\client\20.00\Teradata Parallel Transporter/logs/chris-171.out
+Job id is chris-171, running on yogaslick
+Teradata Parallel Transporter SQL DDL Operator Version 20.00.00.16
+$DDL: private log specified: .\logs\tpt_VENUE_ddl.log
+$DDL: connecting sessions
+$DDL: sending SQL requests
+$DDL: disconnecting sessions
+$DDL: sessions disconnected
+$DDL: Total processor time used = '0.015625 Second(s)'
+$DDL: Start : Mon Sep 29 17:11:14 2025
+$DDL: End   : Mon Sep 29 17:11:19 2025
+Job step drop_table completed successfully
+Job chris completed successfully
+Job start: Mon Sep 29 17:11:14 2025
+Job end:   Mon Sep 29 17:11:19 2025
+
+================================================================================
