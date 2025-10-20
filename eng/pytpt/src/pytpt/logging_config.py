@@ -6,6 +6,7 @@ from loguru import logger
 
 
 def setup_logging(
+    log_dir: str | Path = "logs",
     log_file: str = "pytpt.log",
     log_level: str = "INFO",
 ) -> None:
@@ -13,9 +14,17 @@ def setup_logging(
     Configure loguru logging for TPT operations.
 
     Args:
-        log_file: Name of the log file to write to
+        log_dir: Directory to store log files (default: "logs")
+        log_file: Name of the log file to write to (default: "pytpt.log")
         log_level: Logging level (DEBUG, INFO, WARNING, ERROR)
     """
+    # Ensure log directory exists
+    log_path = Path(log_dir)
+    log_path.mkdir(parents=True, exist_ok=True)
+
+    # Full log file path
+    full_log_path = log_path / log_file
+
     # Remove default handler
     logger.remove()
 
@@ -29,7 +38,7 @@ def setup_logging(
 
     # Add file handler with detailed format
     logger.add(
-        log_file,
+        str(full_log_path),
         level=log_level,
         format="{time:YYYY-MM-DD HH:mm:ss.SSS} | {level: <8} | {name}:{function}:{line} - {message}",
         rotation="10 MB",
@@ -37,7 +46,7 @@ def setup_logging(
         compression="zip",
     )
 
-    logger.info(f"Logging configured - Console: {log_level}, File: {log_file}")
+    logger.info(f"Logging configured - Console: {log_level}, File: {full_log_path}")
 
 
 def get_logger(name: str = None):

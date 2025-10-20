@@ -43,7 +43,8 @@ def run_tbuild(
     jvar_file: Path, tpt_file: Path, operation_type: str = "unknown"
 ) -> bool:
     """Run tbuild command with jobvars and TPT script."""
-    cmd = ["tbuild", "-f", str(tpt_file), "-v", str(jvar_file)]
+    # Use -nocp to disable checkpoint files (prevents issues on reruns)
+    cmd = ["tbuild", "-f", str(tpt_file), "-v", str(jvar_file), "-nocp"]
 
     logger.info(f"Starting {operation_type} operation: {' '.join(cmd)}")
 

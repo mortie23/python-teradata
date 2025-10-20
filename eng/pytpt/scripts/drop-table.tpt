@@ -1,12 +1,23 @@
 /*
-Desc:   Create table from DDL
+Desc:   Drop table and associated error tables
 Reqs:   The Job Variables (jvar) file
+Note:   Teradata doesn't support DROP TABLE IF EXISTS, so we use 
+        DDLErrorList in jobvars to ignore "table doesn't exist" errors.
+        Also drops _ET and _UV error tables created by TPT Load.
 */
 
-DEFINE JOB create_table_job
-DESCRIPTION 'Create Table TPT JOB' (
-  STEP drop_table (
+DEFINE JOB drop_table_job
+DESCRIPTION 'Drop Table and Error Tables TPT JOB' (
+  STEP drop_main_table (
         APPLY ('DROP TABLE {{working_database}}."{{table_name}}";')
+        TO OPERATOR ($DDL);
+    );
+  STEP drop_error_table_1 (
+        APPLY ('DROP TABLE {{working_database}}."{{table_name}}_ET";')
+        TO OPERATOR ($DDL);
+    );
+  STEP drop_error_table_2 (
+        APPLY ('DROP TABLE {{working_database}}."{{table_name}}_UV";')
         TO OPERATOR ($DDL);
     );
 );
